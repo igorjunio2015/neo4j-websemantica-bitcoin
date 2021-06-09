@@ -53,7 +53,6 @@ WHERE b.blockhash = btc.blockhash
 ```
 
 ### Relacionar um bloco com o outro bloco anterior
-Relacionar Outro bloco
 ```
 MATCH
  (b:block),
@@ -94,4 +93,14 @@ blockhashref: '00000000000003e690288380c9b27443b86e5a5ff0f8ed2473efbfdacb3014f3'
 address: '1Utn25yQ1c2HrfF5z7LR9kpS7ANkeoRdQ',
 quantity:1.3
 })
+```
+
+### Criar relacionamento entre a recompensa e as transferências para as carterias participantes na rede
+
+```
+MATCH
+ (btc:coinbase),
+ (out:output)
+WHERE btc.blockhash = out.blockhashref
+    CREATE (btc)-[r:TX]->(out)
 ```
