@@ -1,7 +1,12 @@
-### CÓDIGOS PARA REALIzAR A CRIAÇÃO E TESTES ###
+# Códigos utilizados para implementar localdbs no NEO4J
+
+O intuito é demonstrar em grafos como funciona o blockchain e suas recompensas
 
 
-`
+## Criando os nodes
+
+### Criar o bloco 1
+```
 create(b:block{
     blockhash: '00000000000003e690288380c9b27443b86e5a5ff0f8ed2473efbfdacb3014f3',
     version: 536870912,
@@ -13,8 +18,10 @@ create(b:block{
     size: 748959,
     txcount: 1926
 })
-`
+```
 
+### Criar o bloco 2
+```
 create(b:block{
     blockhash: '474337f9064b66cf22ad806ca47e177d80306790dad086530e668f23ef7e53d2',
     version: 536870912,
@@ -26,23 +33,31 @@ create(b:block{
     size: 748959,
     txcount: 1926
 })
+```
 
+### Criar o coinbase, referenciando o blockhash do bloco e sua recompensa
+```
 create(btc:coinbase{
 	blockhash:'00000000000003e690288380c9b27443b86e5a5ff0f8ed2473efbfdacb3014f3',
 	reward:6.500
 })
+```
 
-Relacionar Coinbase (recompensa bitcoin)
+### Relacionar Coinbase (recompensa bitcoin)
+```
 MATCH
  (b:block),
  (btc:coinbase)
 WHERE b.blockhash = btc.blockhash
     CREATE (b)-[r:REWARD]->(btc)
+```
 
+### Relacionar um bloco com o outro bloco anterior
 Relacionar Outro bloco
+```
 MATCH
  (b:block),
  (b2:block)
 WHERE b.blockhash = b2.prevblock
     CREATE (b)-[r:PREVBLOCK]->(b2)
-
+```
