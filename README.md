@@ -61,3 +61,37 @@ MATCH
 WHERE b.blockhash = b2.prevblock
     CREATE (b)-[r:PREVBLOCK]->(b2)
 ```
+
+## Criando as transferências
+
+```
+create(out:output{
+blockhashref: '00000000000003e690288380c9b27443b86e5a5ff0f8ed2473efbfdacb3014f3',
+address: '1DeySh7DcFjabybujLs55umYYBYmD2Pufc',
+quantity:1.3
+})
+
+create(out:output{
+blockhashref: '00000000000003e690288380c9b27443b86e5a5ff0f8ed2473efbfdacb3014f3',
+address: '1LiLR9qivvaXoJ9eMqcFzsHemJwz2gjNSx',
+quantity:1.3
+})
+
+create(out:output{
+blockhashref: '00000000000003e690288380c9b27443b86e5a5ff0f8ed2473efbfdacb3014f3',
+address: '1PtXvwPabTu9xfiGiEnziTvk8mz8GuzfBT',
+quantity:1.3
+})
+
+create(out:output{
+blockhashref: '00000000000003e690288380c9b27443b86e5a5ff0f8ed2473efbfdacb3014f3',
+address: '1AWCA6FuH2NTRoXjjoubsefRRNuXX7kFKt',
+quantity:1.3
+})
+
+create(out:output{
+blockhashref: '00000000000003e690288380c9b27443b86e5a5ff0f8ed2473efbfdacb3014f3',
+address: '1Utn25yQ1c2HrfF5z7LR9kpS7ANkeoRdQ',
+quantity:1.3
+})
+```
