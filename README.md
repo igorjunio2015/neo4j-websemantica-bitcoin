@@ -1,5 +1,6 @@
 ### CÓDIGOS PARA REALIzAR A CRIAÇÃO E TESTES ###
 
+
 create(b:block{
     blockhash: '00000000000003e690288380c9b27443b86e5a5ff0f8ed2473efbfdacb3014f3',
     version: 536870912,
