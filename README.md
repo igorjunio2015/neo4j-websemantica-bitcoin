@@ -2,6 +2,7 @@
 
 O intuito é demonstrar em grafos como funciona o blockchain e suas recompensas
 
+![](https://github.com/igorjunio2015/neo4j-websemantica-bitcoin/blob/main/img3.PNG)
 
 ## Criando os nodes
 
